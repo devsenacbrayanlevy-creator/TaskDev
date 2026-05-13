@@ -7,12 +7,12 @@ import {
 } from "./dom.js";
 
 // Importando funções do módulo Tarefas
-import {validarTarefa, adicionarTarefa, obterTarefas} from "./tarefas.js";
+import { validarTarefa, adicionarTarefa, obterTarefas } from "./tarefas.js";
 
-// Selecionar o formulário para adicionar um evento de submit
+// Selicionar o formulário para adicionar um evento de submit
 const form = document.querySelector("#form-tarefa");
 
-// Evento de submit para adicionar uma nova tarefa
+// Evento de submit para adicionar um nova tarefa
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -20,12 +20,12 @@ form.addEventListener("submit", function (event) {
   const resultado = validarTarefa(texto);
 
   if (!resultado.valida) {
-    exibirMensagem(resultado.mensagem, "error");
+    exibirMensagem(resultado.mensagem, "erro");
     return;
   }
 
-  adicionarTarefaNaLista(texto);
-  renderizarTarefas
+  adicionarTarefa(texto);
+  renderizarTarefas(obterTarefas());
   exibirMensagem("Tarefa adicionada com sucesso!", "sucesso");
   limparInput();
 });
