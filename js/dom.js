@@ -1,11 +1,14 @@
 // dom.js
 export function obterTextoTarefa() {
-  return document.querySelector("#input-tarefa").value;
+  const input = document.querySelector("#input-tarefa");
+  return input.value;
 }
 
 // Função para limpar o campo do input após adicionar uma tarefa
 export function limparInput() {
-  document.querySelector("#input-tarefa").value = "";
+  const input = document.querySelector("#input-tarefa");
+  input.value = "";
+  input.focus();
 }
 
 // Função para renderizar a lista de tarefas no DOM
@@ -19,6 +22,7 @@ export function renderizarTarefas(tarefas) {
 
     if (tarefa.concluida) {
       li.style.textDecoration = "line-through";
+      li.style.opacity = "0.6";
     }
 
     lista.appendChild(li);
@@ -27,14 +31,40 @@ export function renderizarTarefas(tarefas) {
 
 // Função para exibir mensagens de validação ou sucesso para o usuário
 export function exibirMensagem(mensagem, tipo) {
-  let msg = document.querySelector("#mensagem");
+  let areaMensagem = document.querySelector("#mensagem");
 
-  if (!msg) {
-    msg = document.createElement("p");
-    msg.id = "mensagem";
-    document.body.insertBefore(msg, document.querySelector("#lista-tarefas"));
+  if (!areaMensagem) {
+    areaMensagem = document.createElement("p");
+    areaMensagem.id = "mensagem";
+    document.body.insertBefore(
+      areaMensagem,
+      document.querySelector("#lista-tarefas"),
+    );
   }
 
-  msg.textContent = mensagem;
-  msg.style.color = tipo === "erro" ? "red" : "green";
+  areaMensagem.textContent = mensagem;
+
+  if (tipo === "erro") {
+    areaMensagem.style.color = "red";
+  } else {
+    areaMensagem.style.color = "green";
+  }
+}
+
+// Função exibir dados da API
+
+export function exibirDica(dica) {
+  let areaDica = document.querySelector("#dica")
+
+  if (!areaDica) {
+    areaDica = document.createElement("p");
+    areaDica.id = "dica";
+    document.body.appendChild(areaDica);
+  }
+
+  if (dica) {
+    areaDica.textContent = `💡 Dica do dia: ${dica}`;
+  } else {
+    areaDica.textContent = `⚠️ Não foi possível carregar a dica.`;
+  }
 }

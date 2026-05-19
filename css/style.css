@@ -1,77 +1,138 @@
 :root {
-    --bg-main: #f5f5f7;
-    --bg-card: #ffffff;
-    --text-primary: #1d1d1f;
-    --text-secundary: #6e6e73;
-    --border-light: #e5e5ea;
+  --bg-main: #f5f5f7;
+  --bg-card: #ffffff;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --border-light: #e5e5ea;
 
-    --accent: #0071e3;
-    --accent-hover: #005bb5;
+  --accent: #0071e3;
+  --accent-hover: #005bb5;
 
-    --success: #34c759;
-    --error: #ff3b30;
+  --success: #34c759;
+  --error: #ff3b30;
 }
 
 html {
-    font-size: 89.375%;
+  font-size: 89.375%;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
-/*
-| BASE
-*/
-
+/* ================
+  BASE
+=================*/
 body {
-    background: var(--bg-main);
-    color: var(--text-primary);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding: 2.5rem 1rem;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
 }
-/*
-| CONTAINER PRINCIPAL
-*/
+/* ================
+  CONTAINER PRINCIPAL
+=================*/
 .app {
-    width: 100%;
-    max-width: 520px;
-    background: var(--bg-card);
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 32.5rem;
+  background: var(--bg-card);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.06);
 }
-/*
-| TÍTULO
-*/
+/* ================
+  TÍTULO
+=================*/
 .app h1 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
-/*
-| FORMULÁRIO
-*/
+/* ================
+  FORMULÁRIO
+=================*/
 form {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 input[type="text"] {
-    flex: 1;
-    padding: 0.75rem 0.875rem;
-    border-radius: 0.625rem;
-    border: 0.0625rem solid var(--border-light);
-    font-size: 1rem;
+  flex: 1;
+  padding: 0.75rem 0.875rem;
+  border-radius: 0.625rem;
+  border: 0.0625rem solid var(--border-light);
+  font-size: 1rem;
 }
 
 input[type="text"]:focus {
-    outline: none;
-    border-color: var(--accent);
+  outline: nome;
+  border-color: var(--accent);
+}
+
+/* ================
+  BOTÃO
+=================*/
+button {
+  background-color: var(--accent);
+  color: var(--bg-card);
+  border: none;
+  padding: 0.75rem 1.125rem;
+  border-radius: 0.625rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* ================
+  LISTA DE TAREFAS
+=================*/
+ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+li {
+  padding: 0.875rem;
+  border-bottom: 0.0625rem solid var(--border-light);
+  font-size: 0.95rem;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/* ================
+  MENSAGENS
+=================*/
+#mensagem {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+#mensagem.erro {
+  color: var(--error);
+}
+
+#mensagem.sucesso {
+  color: var(--success);
+}
+
+/* ================
+  DICA EXTERNA
+=================*/
+#dica {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
