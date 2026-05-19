@@ -1,0 +1,55 @@
+:root {
+  --bg-main: #f5f5f7;
+  --bg-card: #ffffff;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --border-light: #e5e5ea;
+
+  --accent: #0071e3;
+  --accent-hover: #005bb5;
+
+  --success: #34c759;
+  --error: #ff3b30;
+}
+
+html {
+  font-size: 89.375%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.topo {
+    text-align: center;
+    border: var();
+    padding: 2rem;
+    background: var(--bg-card);
+    border-radius: 0.65rem;
+    box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.06);
+}
+
+
+
+main {
+    background: var(--bg-card);
+    margin: 3rem;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.06);
+}
+
+main h2 {
+    text-align: center;padding: 1rem;
+}

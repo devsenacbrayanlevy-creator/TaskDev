@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style2.css">
+    <title>Cadastro</title>
+  </head>
+  <body>
+    <header class="topo">
+      <h1>Bem Vindo ao TaskDev</h1>
+    </header>
+    <main>
+      <h2>Cadastro de Usuário</h2>
+      <form id="cadastro-form" aria-label="Formulário de cadastro">
+        <label for="nome">Nome:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          required
+          aria-required="true"
+          aria-label="Campo para nome completo"
+        />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          aria-required="true"
+          aria-label="Campo para endereço de email"
+        />
+
+        <label for="senha">Senha:</label>
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          required
+          aria-required="true"
+          aria-label="Campo para senha"
+        />
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </main>
+  </body>
+</html>
