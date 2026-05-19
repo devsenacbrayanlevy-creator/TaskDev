@@ -1,6 +1,77 @@
+:root {
+    --bg-main: #f5f5f7;
+    --bg-card: #ffffff;
+    --text-primary: #1d1d1f;
+    --text-secundary: #6e6e73;
+    --border-light: #e5e5ea;
+
+    --accent: #0071e3;
+    --accent-hover: #005bb5;
+
+    --success: #34c759;
+    --error: #ff3b30;
+}
+
+html {
+    font-size: 89.375%;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+}
+
+/*
+| BASE
+*/
+
+body {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+}
+/*
+| CONTAINER PRINCIPAL
+*/
+.app {
+    width: 100%;
+    max-width: 520px;
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.06);
+}
+/*
+| TÍTULO
+*/
+.app h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+/*
+| FORMULÁRIO
+*/
+form {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.75rem 0.875rem;
+    border-radius: 0.625rem;
+    border: 0.0625rem solid var(--border-light);
+    font-size: 1rem;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent);
 }

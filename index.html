@@ -14,18 +14,30 @@
     <title>TaskDev</title>
   </head>
   <body>
-    <h1>TaskDev</h1>
+    <div class="app">
+      <header class="app-header">
+        <h1>TaskDev</h1>
+      </header>
 
-    <form id="form-tarefa">
+      <main class="app-content">
+        <form id="form-tarefa" aria-label="Adicionar nova tarefa">
       <input
         type="text"
         id="input-tarefa"
         placeholder="Digite uma tarefa..."
-        required
+        aria-label="Descrição da tarefa"
       />
       <button type="submit">Adicionar</button>
     </form>
 
-    <ul id="lista-tarefas"></ul>
+    <p id="mensagem" role="status" aria-live="polite"></p>
+
+    <ul id="lista-tarefas" aria-label="lista de tarefas"></ul>
+
+    <p id="dica"></p>
+      </main>
+    </div>
+
+    
   </body>
 </html>
