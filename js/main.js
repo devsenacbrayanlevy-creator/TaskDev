@@ -8,7 +8,13 @@ import {
 } from "./dom.js";
 
 // Importando funções do módulo Tarefas
-import { validarTarefa, adicionarTarefa, obterTarefas } from "./tarefas.js";
+import {
+  validarTarefa,
+  adicionarTarefa,
+  obterTarefas,
+  excluirTarefa,
+} from "./tarefas.js";
+import { toggleConcluida } from "./tarefas.js";
 
 // Importando função para buscar dica
 import { buscarDica } from "./api.js";
@@ -18,10 +24,14 @@ const form = document.querySelector("#form-tarefa");
 
 // Função para iniciar a aplicação, buscando uma dica e exibindo-a
 async function iniciarAplicacao() {
-  const dica = await buscarDica()
+  const dica = await buscarDica();
   exibirDica(dica);
 }
 
+// renderiza tarefas salvas ao iniciar
+iniciarAplicacao().then(() => {
+  renderizarTarefas(obterTarefas());
+});
 // Evento de submit para adicionar um nova tarefa
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -40,5 +50,25 @@ form.addEventListener("submit", function (event) {
   limparInput();
 });
 
-// Iniciar aplicação ao carregara página
-iniciarAplicacao();
+// Evento de clique para excluir tarefa na lista
+const listaTarefas = document.querySelector("#lista-tarefas");
+listaTarefas.addEventListener("click", (event) => {
+  // verificar se foi clicado no botão de excluir
+  const botaoExcluir = event.target.closest('button[data-action="delete"]');
+  if (botaoExcluir) {
+    const tarefaId = Number(botaoExcluir.dataset.id);
+    excluirTarefa(tarefaId);
+    renderizarTarefas(obterTarefas());
+    exibirMensagem("Tarefa excluída com sucesso!", "sucesso");
+    return;
+  }
+
+  // verificar se foi clicado no botão de toggle (marcar concluída)
+  const botaoToggle = event.target.closest('button[data-action="toggle"]');
+  if (botaoToggle) {
+    const tarefaId = Number(botaoToggle.dataset.id);
+    toggleConcluida(tarefaId);
+    renderizarTarefas(obterTarefas());
+    return;
+  }
+});

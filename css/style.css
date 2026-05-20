@@ -53,6 +53,7 @@ body {
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
+
 /* ================
   FORMULÁRIO
 =================*/
@@ -71,8 +72,9 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-  outline: nome;
+  outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.1);
 }
 
 /* ================
@@ -94,38 +96,114 @@ button:hover {
   background-color: var(--accent-hover);
 }
 
+.botao-excluir {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--error);
+  background: #ffffff;
+  color: var(--error);
+  border-radius: 0.625rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-left: auto; /* força ficar à direita */
+}
+
+.botao-excluir:hover {
+  background: #f5f5f7;
+}
+
+/* botão de seleção à esquerda */
+.botao-toggle {
+  width: 1.125rem;
+  height: 1.125rem;
+  min-width: 1.125rem;
+  border-radius: 6px; /* pequenas bordas arredondadas */
+  border: 1px solid var(--border-light);
+  background: #ffffff;
+  margin-right: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* estado ativo — fundo azul */
+.botao-toggle.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* hover quando INATIVO: manter fundo branco, só mudar borda para accent */
+.botao-toggle:not(.active):hover {
+  background: #ffffff;
+  border-color: var(--accent);
+}
+
+/* hover quando ATIVO: manter fundo azul (sem alteração) */
+.botao-toggle.active:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
 /* ================
   LISTA DE TAREFAS
 =================*/
 ul {
   list-style: none;
   margin-top: 1rem;
+  height: 500px;
+  overflow-y: scroll;
+  border: 1px solid var(--border-light);
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.875rem;
-  border-bottom: 0.0625rem solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
   font-size: 0.95rem;
+}
+
+/* texto da tarefa ocupa o espaço restante */
+.tarefa-text {
+  flex: 1 1 auto;
+  margin-right: 1rem;
+  word-break: break-word;
 }
 
 li:last-child {
   border-bottom: none;
 }
 
-/* ================
-  MENSAGENS
-=================*/
+/* ============================================
+   MENSAGENS DE FEEDBACK (com efeito de fade)
+   ============================================ */
 #mensagem {
   margin-top: 0.75rem;
   font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* quando a classe 'show' é adicionada fica visível
+   usamos também classes 'erro' e 'sucesso' para cores */
+#mensagem.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 #mensagem.erro {
   color: var(--error);
+  background-color: rgba(255, 59, 48, 0.08);
 }
 
 #mensagem.sucesso {
   color: var(--success);
+  background-color: rgba(52, 199, 89, 0.08);
 }
 
 /* ================
