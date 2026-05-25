@@ -72,3 +72,9 @@ listaTarefas.addEventListener("click", (event) => {
     return;
   }
 });
+
+// Evento de clique para o botão Sair
+const btnSair = document.querySelector("#btn-sair");
+btnSair.addEventListener("click", () => {
+  window.location.href = "/login.html";
+});
